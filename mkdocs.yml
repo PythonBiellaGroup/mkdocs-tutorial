@@ -21,6 +21,7 @@ nav:
           - extensions.md
     - Deploy:
           - deploy.md
+          - github_pages.md
 
 # Configuration
 theme:
