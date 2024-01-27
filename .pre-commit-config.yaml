@@ -1,6 +1,6 @@
 ---
 default_language_version:
-    python: python3.9
+    python: python3.10
 default_stages: [commit, push]
 repos:
     - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -16,8 +16,3 @@ repos:
           - id: pretty-format-json # Checks that all your JSON files are pretty. "Pretty" here means that keys are sorted and indented. You can configure this with the following commandline options
             args: [--autofix]
             exclude: ^.vscode
-
-    - repo: https://github.com/jumanjihouse/pre-commit-hook-yamlfmt
-      rev: 0.2.3
-      hooks:
-          - id: yamlfmt

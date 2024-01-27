@@ -1,20 +1,26 @@
 ---
 # Project information
-site_name: site_name
-site_url: site url
+site_name: mkdocs-tutorial
+site_url: https://test
 site_author: PythonBiellaGroup
 site_description: Tutorial for mkdocs
 copyright: Made with ♥ by PBG with mkdocs
 
 # Repository
-repo_url: repo-url
-repo_name: repo-name
+repo_url: https://github.com/PythonBiellaGroup/mkdocs-tutorial
+repo_name: 'PythonBiellaGroup/mkdocs-tutorial'
 edit_uri: edit/main/docs
 
 # Page tree
 nav:
     - Home:
           - index.md
+    - Setup:
+          - setup.md
+    - Estensioni:
+          - extensions.md
+    - Deploy:
+          - deploy.md
 
 # Configuration
 theme:
@@ -50,8 +56,8 @@ theme:
     palette:
       # Light mode
         - scheme: default
-          primary: green
-          accent: green
+          primary: teal
+          accent: teal
           toggle:
               icon: material/brightness-7
               name: Switch to dark mode
@@ -72,8 +78,6 @@ markdown_extensions:
     - meta
     - tables
     - md_in_html
-    - neoteroi.cards
-    - neoteroi.timeline
     - toc:
           title: On this page
           permalink: true
@@ -105,12 +109,10 @@ markdown_extensions:
           custom_fences:
               - name: vegalite
                 class: vegalite
-                format: !%21python/name:mkdocs_charts_plugin.fences.fence_vegalite
+                format: !!python/name:mkdocs_charts_plugin.fences.fence_vegalite
               - name: mermaid
                 class: mermaid
-                format: !%21python/name:pymdownx.superfences.fence_code_format
-extra_css:
-    - css/neoteroi-mkdocs.css
+                format: !!python/name:pymdownx.superfences.fence_code_format
 
 extra_javascript:
     - https://cdn.jsdelivr.net/npm/vega@5
@@ -121,6 +123,8 @@ plugins:
     - macros
     - charts
     - tags
+    - autorefs
+    - mkdocs-jupyter
     - minify:
           minify_html: true
           minify_js: true
@@ -129,9 +133,34 @@ plugins:
               remove_comments: true
     - search:
           separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+    - i18n:
+          docs_structure: suffix
+          fallback_to_default: true
+          reconfigure_material: true
+          reconfigure_search: true
+          languages:
+              - locale: it
+                name: Italian
+                build: true
+                default: true
+                site_name: PythonBiellaGroup
+                site_description: PythonBiellaGroup sito ufficiale che contiene tutte le guide, informazioni, materiale e risorse per la community.
+              - locale: en
+                name: English
+                build: true
+                default: false
+                site_name: PythonBiellaGroup
+                site_description: PythonBiellaGroup official website with all the guides, information, materials, and resource for the community.
     - git-revision-date-localized
 
 extra:
+    alternate:
+        - name: Italian
+          link: /
+          lang: it
+        - name: English
+          link: /en
+          lang: en
     consent:
         title: Cookie consent
         description: >-
