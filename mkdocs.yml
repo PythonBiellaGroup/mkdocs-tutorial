@@ -8,171 +8,206 @@ copyright: Made with ♥ by PBG with mkdocs
 
 # Repository
 repo_url: https://github.com/PythonBiellaGroup/mkdocs-tutorial
-repo_name: 'PythonBiellaGroup/mkdocs-tutorial'
+repo_name: "PythonBiellaGroup/mkdocs-tutorial"
 edit_uri: edit/main/docs
 
 # Page tree
 nav:
-    - Home:
-          - index.md
-    - Setup:
-          - setup.md
-    - Estensioni:
-          - extensions.md
-    - Deploy:
-          - deploy.md
-          - github_pages.md
+      - Home:
+              - index.md
+      - Code:
+              - mycode.md
+      - Extra:
+              - extra.md
+      - Documenti:
+              - documenti.md
+      - Notebook page: test.ipynb
 
 # Configuration
 theme:
-    name: material
-    docs_dir: docs
-    site_dir: site
-    icon:
-        repo: fontawesome/brands/github
-    include_search_page: false
-    search_index_only: true
-    features:
-        - announce.dismiss
-        - content.action.edit
-        - content.action.view
-        - content.code.annotate
-        - content.code.copy
-        - content.tooltips
-        - header.autohide
-        - navigation.footer
-        - navigation.indexes
-        - navigation.top
-        - navigation.tracking
-        - navigation.path
-        - navigation.tabs
-        - navigation.tabs.sticky
-        - search.suggest
-        - search.highlight
-        - search.share
-        - toc.follow
-    font:
-        text: Roboto
-        code: Roboto mono
-    palette:
-      # Light mode
-        - scheme: default
-          primary: teal
-          accent: teal
-          toggle:
-              icon: material/brightness-7
-              name: Switch to dark mode
-      # Dark mode
-        - scheme: slate
-          primary: red
-          accent: red
-          toggle:
-              icon: material/brightness-4
-              name: Switch to light mode
+      name: material
+      docs_dir: docs
+      site_dir: site
+      icon:
+            repo: fontawesome/brands/github
+      include_search_page: false
+      search_index_only: true
+      features:
+            # - announce.dismiss
+            # - content.action.edit
+            # - content.action.view
+            # - content.code.annotate
+            # - content.code.copy
+            # - content.tooltips
+            # - header.autohide
+            # - navigation.footer
+            # - navigation.indexes
+            # - navigation.top
+            # - navigation.tracking
+            # - navigation.path
+            # - navigation.tabs
+            # - navigation.tabs.sticky
+            # - search.suggest
+            # - search.highlight
+            # - search.share
+            # - toc.follow
+            - navigation.top
+            - navigation.tracking
+              # - navigation.instant
+            - toc.integrate
+            - search.suggest
+            - search.highlight
+            - search.share
+            - header.autohide
+            - content.code.annotate
+            - navigation.indexes
+            - navigation.sections
+            - navigation.tabs
+
+      font:
+            text: Roboto
+            code: Roboto mono
+      palette:
+            # Light mode
+            - scheme: default
+              primary: teal
+              accent: teal
+              toggle:
+                    icon: material/brightness-7
+                    name: Switch to dark mode
+            # Dark mode
+            - scheme: slate
+              primary: red
+              accent: red
+              toggle:
+                    icon: material/brightness-4
+                    name: Switch to light mode
+
 markdown_extensions:
-    - abbr
-    - admonition
-    - attr_list
-    - codehilite
-    - def_list
-    - footnotes
-    - meta
-    - tables
-    - md_in_html
-    - toc:
-          title: On this page
-          permalink: true
-          permalink_title: Anchor link to this section for reference
-    - pymdownx.arithmatex:
-          generic: true
-    - pymdownx.betterem:
-          smart_enable: all
-    - pymdownx.caret
-    - pymdownx.details
-    - pymdownx.highlight:
-          anchor_linenums: true
-          line_spans: __span
-          pygments_lang_class: true
-    - pymdownx.inlinehilite
-    - pymdownx.keys
-    - pymdownx.magiclink:
-          repo_url_shorthand: true
-          user: airaghidavide
-          repo: airaghidavide.github.io
-    - pymdownx.mark
-    - pymdownx.smartsymbols
-    - pymdownx.tabbed:
-          alternate_style: true
-    - pymdownx.tasklist:
-          custom_checkbox: true
-    - pymdownx.tilde
-    - pymdownx.superfences:
-          custom_fences:
-              - name: vegalite
-                class: vegalite
-                format: !!python/name:mkdocs_charts_plugin.fences.fence_vegalite
-              - name: mermaid
-                class: mermaid
-                format: !!python/name:pymdownx.superfences.fence_code_format
+      - abbr
+      - admonition
+      - attr_list
+      - codehilite
+      - def_list
+      - neoteroi.cards
+      - neoteroi.timeline
+      - footnotes
+      - meta
+      - md_in_html
+      - toc:
+              title: On this page
+              permalink: true
+              permalink_title: Anchor link to this section for reference
+      - pymdownx.arithmatex:
+              generic: true
+      - pymdownx.betterem:
+              smart_enable: all
+      - pymdownx.caret
+      - pymdownx.superfences
+      - pymdownx.details
+      - pymdownx.highlight:
+              anchor_linenums: true
+              line_spans: __span
+              pygments_lang_class: true
+      - pymdownx.inlinehilite
+      - pymdownx.keys
+      - pymdownx.magiclink:
+              repo_url_shorthand: true
+              user: pythonbiellagroup
+              repo: website
+      - pymdownx.mark
+      - pymdownx.smartsymbols
+      - pymdownx.tabbed:
+              alternate_style: true
+      - pymdownx.tasklist:
+              custom_checkbox: true
+      - pymdownx.tilde
 
 extra_javascript:
-    - https://cdn.jsdelivr.net/npm/vega@5
-    - https://cdn.jsdelivr.net/npm/vega-lite@5
-    - https://cdn.jsdelivr.net/npm/vega-embed@6
+      # - https://cdn.jsdelivr.net/npm/vega@5
+      # - https://cdn.jsdelivr.net/npm/vega-lite@5
+      # - https://cdn.jsdelivr.net/npm/vega-embed@6
+      - https://polyfill.io/v3/polyfill.min.js?features=es6
+      - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+      - https://squidfunk.github.io/mkdocs-material/reference/mathjax/
 
 plugins:
-    - macros
-    - charts
-    - tags
-    - autorefs
-    - mkdocs-jupyter
-    - minify:
-          minify_html: true
-          minify_js: true
-          minify_css: true
-          htmlmin_opts:
-              remove_comments: true
-    - search:
-          separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
-    - i18n:
-          docs_structure: suffix
-          fallback_to_default: true
-          reconfigure_material: true
-          reconfigure_search: true
-          languages:
-              - locale: it
-                name: Italian
-                build: true
-                default: true
-                site_name: PythonBiellaGroup
-                site_description: PythonBiellaGroup sito ufficiale che contiene tutte le guide, informazioni, materiale e risorse per la community.
-              - locale: en
-                name: English
-                build: true
-                default: false
-                site_name: PythonBiellaGroup
-                site_description: PythonBiellaGroup official website with all the guides, information, materials, and resource for the community.
-    - git-revision-date-localized
+      # - macros
+      # - charts
+      # - tags
+      - autorefs
+      - minify:
+              minify_html: true
+              minify_js: true
+              minify_css: true
+              htmlmin_opts:
+                    remove_comments: true
+      - mkdocstrings:
+              default_handler: python
+              handlers:
+                    python:
+                          options:
+                                show_source: true
+                                show_root_heading: yes
+                                heading_level: 0
+                                filters:
+                                      - "!^_" # exclude all members starting with _
+                                      - "!^__init__$" # exclude __init__ modules and methods
+      - search:
+              separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+      - i18n:
+              docs_structure: suffix
+              fallback_to_default: true
+              reconfigure_material: true
+              reconfigure_search: true
+              languages:
+                    - locale: it
+                      name: Italian
+                      build: true
+                      default: true
+                      site_name: mkdocs-tutorial
+                      site_description: PythonBiellaGroup sito ufficiale che contiene tutte le guide, informazioni, materiale e risorse per la community.
+                    - locale: en
+                      name: English
+                      build: true
+                      default: false
+                      site_name: mkdocs-tutorial
+                      site_description: PythonBiellaGroup official website with all the guides, information, materials, and resource for the community.
+      - git-revision-date-localized
+      - mkdocs-jupyter:
+              ignore_h1_titles: True
+              kernel_name: python3
+              include_source: true # possibility to download the notebook
+              execute: false
+              allow_errors: true
+              no_input: True
+              include_requirejs: true
+              include: ["*.ipynb"] # Default: ["*.py", "*.ipynb"]
+              ignore: ["some-irrelevant-files/*.ipynb"]
+              remove_tag_config:
+                    remove_input_tags:
+                          - hide_code
 
 extra:
-    alternate:
-        - name: Italian
-          link: /
-          lang: it
-        - name: English
-          link: /en
-          lang: en
-    consent:
-        title: Cookie consent
-        description: >-
-            I use cookies to recognize your repeated visits and preferences, as well
-            as to measure the effectiveness of my site and whether users
-            find what they're searching for. With your consent, you're helping me to
-            make our site better.
-    annotate:
-        json: [.s2]
-    generator: false
-    social:
-        - icon: fontawesome/solid/paper-plane
-          link: mailto:pythonbiellagroup@gmail.com
-          name: Write to us
+      alternate:
+            - name: Italian
+              link: /
+              lang: it
+            - name: English
+              link: /en
+              lang: en
+      consent:
+            title: Cookie consent
+            description: >-
+                  I use cookies to recognize your repeated visits and preferences, as well
+                  as to measure the effectiveness of my site and whether users
+                  find what they're searching for. With your consent, you're helping me to
+                  make our site better.
+      annotate:
+            json: [.s2]
+      disquis: PBG
+      generator: false
+      social:
+            - icon: fontawesome/solid/paper-plane
+              link: mailto:pythonbiellagroup@gmail.com
+              name: Write to us

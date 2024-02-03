@@ -8,16 +8,22 @@ authors = [
 
 [tool.poetry.dependencies]
 python = ">=3.9, !=3.9.7, <3.11"
-mkdocs = "^1.5.3"
-mkdocs-autorefs = "^0.5.0"
-mkdocs-awesome-pages-plugin = "^2.9.2"
-mkdocs-charts-plugin = "^0.0.10"
-mkdocs-git-revision-date-localized-plugin = "^1.2.0"
-mkdocs-jupyter = "^0.24.6"
-mkdocs-macros-plugin = "^1.0.4"
-mkdocs-material = "^9.4.6"
-mkdocs-minify-plugin = "^0.7.1"
-mkdocs-static-i18n = "^1.2.0"
+mkdocs = ">=1.5.3"
+mkdocs-autorefs = ">=0.5.0"
+mkdocs-awesome-pages-plugin = ">=2.9.2"
+mkdocs-charts-plugin = ">=0.0.10"
+mkdocs-git-revision-date-localized-plugin = ">=1.2.0"
+mkdocs-jupyter = ">=0.24.6"
+mkdocs-macros-plugin = ">=1.0.4"
+mkdocs-material = ">=9.4.6"
+mkdocs-minify-plugin = ">=0.7.1"
+mkdocs-static-i18n = ">=1.2.0"
+mkdocstrings-python = ">=1.8.0"
+neoteroi-mkdocs = ">=1.0.5"
+pandas = ">=2.2.0"
+matplotlib = ">=3.8.2"
+plotly = ">=5.18.0"
+jupyter = ">=1.0.0"
 
 
 [tool.poetry.group.dev.dependencies]
