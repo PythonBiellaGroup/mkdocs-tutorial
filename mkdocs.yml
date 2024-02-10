@@ -26,9 +26,11 @@ nav:
 # Configuration
 theme:
       name: material
+      custom_dir: overrides
       docs_dir: docs
       site_dir: site
       icon:
+            logo: material/bird
             repo: fontawesome/brands/github
       include_search_page: false
       search_index_only: true
@@ -85,7 +87,7 @@ theme:
 
 markdown_extensions:
       - abbr
-      - admonition
+      #- admonition
       - attr_list
       - codehilite
       - def_list
@@ -103,7 +105,11 @@ markdown_extensions:
       - pymdownx.betterem:
               smart_enable: all
       - pymdownx.caret
-      - pymdownx.superfences
+      - pymdownx.superfences:
+            custom_fences:
+                  - name: mermaid
+                    class: mermaid
+                    format: !!python/name:mermaid2.fence_mermaid_custom
       - pymdownx.details
       - pymdownx.highlight:
               anchor_linenums: true
@@ -131,11 +137,40 @@ extra_javascript:
       - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
       - https://squidfunk.github.io/mkdocs-material/reference/mathjax/
 
+
 plugins:
       # - macros
       # - charts
       # - tags
       - autorefs
+      - mermaid2
+      - mkdocs-pdf
+      - mkdocs-jupyter:
+            ignore_h1_titles: True
+            include: ["*.ipynb"]
+            execute: false
+            allow_errors: true
+            show_input: True
+            include_requirejs: true
+      ### QUESTO PLUGIN NON FA FUNZIONARE MKDOCS-JUPYTER 
+      - i18n:
+            docs_structure: suffix
+            fallback_to_default: true
+            reconfigure_material: true
+            reconfigure_search: true
+            languages:
+                  - locale: it
+                    name: Italian
+                    build: true
+                    default: true
+                    site_name: mkdocs-tutorial
+                    site_description: PythonBiellaGroup sito ufficiale che contiene tutte le guide, informazioni, materiale e risorse per la community.
+                  - locale: en
+                    name: English
+                    build: true
+                    default: false
+                    site_name: mkdocs-tutorial
+                    site_description: PythonBiellaGroup official website with all 
       - minify:
               minify_html: true
               minify_js: true
@@ -155,38 +190,13 @@ plugins:
                                       - "!^__init__$" # exclude __init__ modules and methods
       - search:
               separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
-      - i18n:
-              docs_structure: suffix
-              fallback_to_default: true
-              reconfigure_material: true
-              reconfigure_search: true
-              languages:
-                    - locale: it
-                      name: Italian
-                      build: true
-                      default: true
-                      site_name: mkdocs-tutorial
-                      site_description: PythonBiellaGroup sito ufficiale che contiene tutte le guide, informazioni, materiale e risorse per la community.
-                    - locale: en
-                      name: English
-                      build: true
-                      default: false
-                      site_name: mkdocs-tutorial
-                      site_description: PythonBiellaGroup official website with all the guides, information, materials, and resource for the community.
+    
       - git-revision-date-localized
-      - mkdocs-jupyter:
-              ignore_h1_titles: True
-              kernel_name: python3
-              include_source: true # possibility to download the notebook
-              execute: false
-              allow_errors: true
-              no_input: True
-              include_requirejs: true
-              include: ["*.ipynb"] # Default: ["*.py", "*.ipynb"]
-              ignore: ["some-irrelevant-files/*.ipynb"]
-              remove_tag_config:
-                    remove_input_tags:
-                          - hide_code
+      - git-authors
+
+
+extra_css:
+    - style/neoteroi-mkdocs.css
 
 extra:
       alternate:
@@ -211,3 +221,4 @@ extra:
             - icon: fontawesome/solid/paper-plane
               link: mailto:pythonbiellagroup@gmail.com
               name: Write to us
+
