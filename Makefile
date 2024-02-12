@@ -65,11 +65,48 @@ docs_launch_local: ## Launch mkdocs documentation locally with the local buildin
 	@poetry run mkdocs serve -v --dev-addr=0.0.0.0:8000
 
 docs_deploy: ## Deploy mkdocs documentation to github pages
-	@poetry run mkdocs build --clean --quiet --config-file mkdocs.insiders.yml
+	@poetry run mkdocs build --clean --quiet --config-file mkdocs.yml
 	@poetry run mkdocs gh-deploy --force
 
 docs_public: ## Build mkdocs for official online release
-	@poetry run mkdocs build -c -v --site-dir public --quiet --config-file mkdocs.insiders.yml
+	@poetry run mkdocs build -c -v --site-dir public --quiet --config-file mkdocs.yml
+
+####----Docker----####
+.PHONY: docker
+# Remember to login before
+# source .env | echo $GHCR_TOKEN | docker login ghcr.io -u $GHCR_USERNAME -p $GHCR_TOKEN
+docker_launch: ## Launch the docker compose and containers
+	@docker-compose -p pbg up --build -d 
+
+# --build-arg GHCR_USERNAME=${GHCR_USERNAME} --build-arg GHCR_TOKEN=${GHCR_TOKEN}
+docker_build: ## Build the docker compose and containers
+	@docker-compose -p pbg build 
+
+docker_check: ## Check the logs for the docker containers
+	@docker ps -a | grep "pbg"
+
+docker_check_logs: ## Check the logs for the docker containers
+	@docker-compose -p pbg logs -f
+
+docker_stop: ## Stop the docker containers
+	@docker-compose down
+
+docker_stop_clear: ## Stop the docker containers and clean the volumes
+	@docker-compose down -v
+
+docker_clean_volumes: ## Clean the volumes
+	@docker volume prune
+
+####----Project----####
+.PHONY: poetry_build
+package_build: # Build the package
+	@poetry build
+
+.PHONY: publish_pypi
+pypi: # publish in the public pypy registry
+	@python setup.py sdist
+	@python setup.py bdist_wheel --universal
+	@twine upload dist/*
 
 .DEFAULT_GOAL := help
 SHELL := /bin/bash
