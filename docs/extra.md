@@ -10,6 +10,9 @@ title: Extra features
 
 ## Creare dei banner
 
+E' possibile inserire dei banner all'interno del file markdown.
+Crea il tuo badge personalizzato con https://shields.io/badges
+
 [![Built with Material for MkDocs](https://img.shields.io/badge/Material_for_MkDocs-526CFE?style=for-the-badge&logo=MaterialForMkDocs&logoColor=white)](https://squidfunk.github.io/mkdocs-material/)
 
 [![Github](https://img.shields.io/badge/GitHub-181717.svg?style=for-the-badge&logo=GitHub&logoColor=white)](https://github.com/PythonBiellaGroup/MaterialeSerate/tree/master/ModernPythonDevelopment)
@@ -24,9 +27,9 @@ title: Extra features
 
 ## Admonition
 
-Admonition con titolo
+Admonition con titolo.
 
-!!! note "My note"
+!!! note
 
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
     nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor

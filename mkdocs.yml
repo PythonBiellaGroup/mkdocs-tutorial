@@ -86,7 +86,7 @@ theme:
 
 markdown_extensions:
       - abbr
-      #- admonition
+      - admonition
       - attr_list
       - codehilite
       - def_list
