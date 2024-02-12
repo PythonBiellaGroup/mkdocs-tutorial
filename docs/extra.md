@@ -29,7 +29,7 @@ Crea il tuo badge personalizzato con https://shields.io/badges
 
 Admonition con titolo.
 
-!!! note
+!!! note "My note"
 
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
     nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
